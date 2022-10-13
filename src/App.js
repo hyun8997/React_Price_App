@@ -2,6 +2,7 @@ import Expenses from "./components/Expenses"; // 컴포넌트를 html처럼 사�
 
 function App() {
   //Props 사용해서 데이터 전달
+  //작은 빌딩 블럭으로부터 UI를 구성하는 접근방법을 composition이라 함
   const expenses = [
     {
       id: "e1",
@@ -27,7 +28,7 @@ function App() {
   return (
     <div>
       <h2>Let's get started!</h2>
-      <Expenses expenses={expenses} />
+      <Expenses items={expenses} />
     </div>
   );
 }
