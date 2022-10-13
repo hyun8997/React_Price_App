@@ -1,5 +1,5 @@
 import React from "react";
-import Expenses from "./components/Expenses"; // 컴포넌트를 html처럼 사용 가능, 이름을 대문자부터 시작하도록 해야 함
+import Expenses from "./components/Expenses/Expenses"; // 컴포넌트를 html처럼 사용 가능, 이름을 대문자부터 시작하도록 해야 함
 
 function App() {
   //Props 사용해서 데이터 전달
@@ -27,7 +27,7 @@ function App() {
   ];
 
   //과거 리액트 코드
-  // return React.createElement(
+  // return React.createElement(  //래핑 요소가 필요한 이유, 평행 두 요소가 반환되지 않는 이유
   //   "div",
   //   {},
   //   React.createElement("h2", {}, "Let's get started!"),
