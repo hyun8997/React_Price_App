@@ -1,7 +1,7 @@
 import React from "react";
 import Expenses from "./components/Expenses/Expenses"; // 컴포넌트를 html처럼 사용 가능, 이름을 대문자부터 시작하도록 해야 함
 
-function App() {
+const App = () => {
   //Props 사용해서 데이터 전달
   //작은 빌딩 블럭으로부터 UI를 구성하는 접근방법을 composition이라 함
   const expenses = [
@@ -40,6 +40,6 @@ function App() {
       <Expenses items={expenses} />
     </div>
   );
-}
+};
 
 export default App;

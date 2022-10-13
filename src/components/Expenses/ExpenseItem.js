@@ -4,7 +4,7 @@ import Card from "../UI/Card";
 import "./ExpenseItem.css";
 
 // props 받음! key와 value 데이터를 받아옴
-function ExpenseItem(props) {
+const ExpenseItem = (props) => {
   //하나의 컴포넌트는 하나로 묶는 부모 요소가 필수(root처럼)
   //JSX의 html에는 class 대신 className을 사용함
 
@@ -28,6 +28,6 @@ function ExpenseItem(props) {
       </div>
     </Card>
   );
-}
+};
 
 export default ExpenseItem;
