@@ -7,21 +7,17 @@ import "./Expenses.css";
 const Expenses = (props) => {
   // 기본값 설정하기(상위->하위)
   const [filteredYear, setFilteredYear] = useState("2020");
-  // 필터값용 State 관리, 초기값은 App에서 받아온 데이터 사용
-  const [filteredExpenses, setFilteredExpense] = useState(props.items);
 
   // 연도 필터 데이터 받아오기(하위->상위)
   const getExpensesFilterData = (filterData) => {
-    // 필터값으로 배열 잘라서 tmp로
-    const filteredExpensesTmp = props.items.filter((expense) => {
-      return expense.date.getFullYear().toString() === filterData;
-    });
-
-    // tmp를 State 현재값으로 변경
-    setFilteredExpense(filteredExpensesTmp);
     // select를 선택한 값으로 변경
     setFilteredYear(filterData);
   };
+
+  // filter로 목록 잘라서 전달
+  const filteredExpenses = props.items.filter((expense) => {
+    return expense.date.getFullYear().toString() === filteredYear;
+  });
 
   return (
     <div>
