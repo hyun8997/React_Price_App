@@ -19,6 +19,19 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
+  //변수로 변경해서 필터링된 내용의 길이에 따른 조건부 출력
+  let expensesContent = <p>No expenses found.</p>;
+  if (filteredExpenses.length > 0) {
+    expensesContent = filteredExpenses.map((expense) => (
+      <ExpenseItem
+        key={expense.id}
+        title={expense.title}
+        amount={expense.amount}
+        date={expense.date}
+      />
+    ));
+  }
+
   return (
     <div>
       <Card className="expenses">
@@ -29,17 +42,7 @@ const Expenses = (props) => {
           onGetFilterData={getExpensesFilterData}
         />
 
-        {
-          // items.map으로 변경
-          filteredExpenses.map((expense) => (
-            <ExpenseItem
-              key={expense.id}
-              title={expense.title}
-              amount={expense.amount}
-              date={expense.date}
-            />
-          ))
-        }
+        {expensesContent}
 
         {/* <ExpenseItem
           title={props.items[0].title}
