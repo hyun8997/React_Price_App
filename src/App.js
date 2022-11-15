@@ -30,12 +30,12 @@ const App = () => {
   const addExpenseHandler = (expense) => {
     // 받아온놈 처음에 넣고 나머지 원래 데이터 뒤에
     // 상태 업데이트가 요청이라서 확실하게 이전 데이터를 참조하도록 변경 필요
-    // setExpenses([expense, ...expenses]); 
+    // setExpenses([expense, ...expenses]);
     //
     // 최신의 스냅샷을 받도록 변경
-    setExpenses( (prevExpenses) => {
-      return [expense, ...prevExpenses]; 
-    }
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
   };
 
   //과거 리액트 코드
