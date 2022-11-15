@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./ExpenseForm.css";
 
-const ExpenseForm = () => {
+const ExpenseForm = (props) => {
   // 1. 3개 State 사용
   const [enteredTitle, setEnteredTitle] = useState("");
   const [enteredAmount, setEnteredAmount] = useState("");
@@ -46,7 +46,10 @@ const ExpenseForm = () => {
       date: new Date(enteredDate),
     };
 
-    console.log(expenseData);
+    // props에서 상위 컴포넌트에서 하위 컴포넌트의 데이터를 받을 이벤트를 발동시키는것
+    props.onSaveExpenseData(expenseData);
+
+    // submit 후 input value 지워지도록
     setEnteredTitle("");
     setEnteredAmount("");
     setEnteredDate("");

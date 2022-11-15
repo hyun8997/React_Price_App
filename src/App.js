@@ -27,6 +27,11 @@ const App = () => {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expenses);
+  };
+
   //과거 리액트 코드
   // return React.createElement(  //래핑 요소가 필요한 이유, 평행 두 요소가 반환되지 않는 이유
   //   "div",
@@ -37,7 +42,7 @@ const App = () => {
 
   return (
     <div>
-      <NewExpense />
+      <NewExpense onAddExpense={addExpenseHandler} />
       <Expenses items={expenses} />
     </div>
   );
