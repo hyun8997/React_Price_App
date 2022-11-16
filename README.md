@@ -1,7 +1,7 @@
-# React_price_app : 리액트 가격 기록 앱
+React_price_app : 리액트 가격 기록 앱
 -------------
 
-##내용 기록
+내용 기록
 1. Componet Tree
 2. 이벤트 처리
 3. 양방향 바인딩
