@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
 
@@ -13,11 +13,37 @@ const NewExpense = (props) => {
     props.onAddExpense(expenseData);
   };
 
+  // 토글값 받고 변경하도록 useState 사용
+  const [expenseToggle, setExpenseToggle] = useState(false);
+  // 기본 State에서 form State로 변경
+  const onAddNewExpense = (event) => {
+    setExpenseToggle(true);
+  };
+  // form에서 캔슬될때 기본 State
+  const onCancelNewExpense = (event) => {
+    setExpenseToggle(false);
+  };
+
+  // jsx용 변수
+  let newExpense = (
+    <button type="button" onClick={onAddNewExpense}>
+      Add New Expense
+    </button>
+  );
+  if (expenseToggle === true) {
+    newExpense = (
+      <ExpenseForm
+        onSaveExpenseData={saveExpenseDataHandler}
+        onCancel={onCancelNewExpense}
+      />
+    );
+  }
+
   return (
     <div className="new-expense">
       {/* 하위 컴포넌트로부터 상향으로 데이터를 받아오기 위한 사용자 이벤트를 추가함 */}
       {/* 추가한 이벤트는 하위 컴포넌트에서 props내에 존재함 */}
-      <ExpenseForm onSaveExpenseData={saveExpenseDataHandler} />
+      {newExpense}
     </div>
   );
 };
