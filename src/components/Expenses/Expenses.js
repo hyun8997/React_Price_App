@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import ExpenseItem from "./ExpenseItem";
+
 import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
+import ExpenmseList from "./ExpensesList";
 
 const Expenses = (props) => {
   // 기본값 설정하기(상위->하위)
@@ -19,19 +20,6 @@ const Expenses = (props) => {
     return expense.date.getFullYear().toString() === filteredYear;
   });
 
-  //변수로 변경해서 필터링된 내용의 길이에 따른 조건부 출력
-  let expensesContent = <p>No expenses found.</p>;
-  if (filteredExpenses.length > 0) {
-    expensesContent = filteredExpenses.map((expense) => (
-      <ExpenseItem
-        key={expense.id}
-        title={expense.title}
-        amount={expense.amount}
-        date={expense.date}
-      />
-    ));
-  }
-
   return (
     <div>
       <Card className="expenses">
@@ -42,7 +30,7 @@ const Expenses = (props) => {
           onGetFilterData={getExpensesFilterData}
         />
 
-        {expensesContent}
+        <ExpenmseList items={filteredExpenses} />
 
         {/* <ExpenseItem
           title={props.items[0].title}
