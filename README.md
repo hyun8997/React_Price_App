@@ -1,6 +1,4 @@
-# React_price_app
-
-리액트 가격 기록 앱
+# React_price_app : 리액트 가격 기록 앱
 -------------
 
 ##내용 기록
