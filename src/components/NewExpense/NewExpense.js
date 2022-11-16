@@ -24,26 +24,21 @@ const NewExpense = (props) => {
     setExpenseToggle(false);
   };
 
-  // jsx용 변수
-  let newExpense = (
-    <button type="button" onClick={onAddNewExpense}>
-      Add New Expense
-    </button>
-  );
-  if (expenseToggle === true) {
-    newExpense = (
-      <ExpenseForm
-        onSaveExpenseData={saveExpenseDataHandler}
-        onCancel={onCancelNewExpense}
-      />
-    );
-  }
-
   return (
     <div className="new-expense">
       {/* 하위 컴포넌트로부터 상향으로 데이터를 받아오기 위한 사용자 이벤트를 추가함 */}
       {/* 추가한 이벤트는 하위 컴포넌트에서 props내에 존재함 */}
-      {newExpense}
+      {!expenseToggle && (
+        <button type="button" onClick={onAddNewExpense}>
+          Add New Expense
+        </button>
+      )}
+      {expenseToggle && (
+        <ExpenseForm
+          onSaveExpenseData={saveExpenseDataHandler}
+          onCancel={onCancelNewExpense}
+        />
+      )}
     </div>
   );
 };
