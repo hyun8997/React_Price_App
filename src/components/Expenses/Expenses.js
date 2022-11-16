@@ -4,6 +4,7 @@ import ExpensesFilter from "./ExpensesFilter";
 import Card from "../UI/Card";
 import "./Expenses.css";
 import ExpenmseList from "./ExpensesList";
+import ExpensesChart from "./ExpenseChart";
 
 const Expenses = (props) => {
   // 기본값 설정하기(상위->하위)
@@ -29,7 +30,7 @@ const Expenses = (props) => {
           // 필터 데이터 받아옴
           onGetFilterData={getExpensesFilterData}
         />
-
+        <ExpensesChart expenses={filteredExpenses} />
         <ExpenmseList items={filteredExpenses} />
 
         {/* <ExpenseItem

@@ -4,7 +4,7 @@ import "./ChartBar.css";
 const ChartBar = (props) => {
   let barFillHeight = "0%";
 
-  if (props.max > 0) {
+  if (props.maxValue > 0) {
     // css 스타일의 높이로 설정할 값
     barFillHeight = Math.round((props.value / props.maxValue) * 100) + "%";
   }
